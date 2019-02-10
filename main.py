@@ -14,5 +14,5 @@ if __name__ == '__main__':
         file = sys.argv[1]
         max_step = int(sys.argv[2])
 
-    solver = sudoku.solver(file=file, max_step=max_step)
+    solver = sudoku.solver(file=file, max_iteration=max_step)
     solver.run()

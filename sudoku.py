@@ -4,7 +4,7 @@
 This module solves any sudoku puzzels. A puzzel should be
 given by a file consisting with comma-separated columns and
 line_break-separated rows. The number of rows and columns
-should be the same and they should be the square of an integer.
+should be the same and they should be a square of an integer.
 
 Example:
     >>> import sudoku
@@ -63,7 +63,8 @@ class solver():
             is_solved, is_updated, is_collided = self.solve(table, notes)
             complexity = self.complexity(notes)
             self.step += 1
-            self.log(log, 'update', self.depth, table, complexity)
+            if not is_solved:
+                self.log(log, 'update', self.depth, table, complexity)
 
             if self.step >= max_iteration:
                 if self.depth == 0:
